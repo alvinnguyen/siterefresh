@@ -6,6 +6,6 @@
 
 @section('content')
     {{ $site->url }}
-    {{ $content_length_kb }}KB
-    {{ $content_md5 }}
+    {{--{{ $content_length_kb }}KB--}}
+    {{--{{ $content_md5 }}--}}
 @endsection

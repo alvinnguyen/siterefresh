@@ -52,12 +52,8 @@ class SitesController extends \BaseController {
 	public function show($id)
 	{
 		$site = Site::findOrFail($id);
-        $headers = get_headers($site->url, 1);
-        $content_length = $headers["Content-Length"];
-        $content = file_get_contents($site->url, NULL, NULL, NULL, $content_length);
-        $content_length_kb = ceil($content_length/1024);
-        $content_md5 = md5($content);
-		return View::make('sites.show', compact('site','content_length_kb','content_md5'));
+        $site->refresh();
+		return View::make('sites.show', compact('site'));
 	}
 
 	/**
